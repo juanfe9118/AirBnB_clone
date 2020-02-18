@@ -13,6 +13,7 @@ import sys
 
 
 class HBNBCommand(cmd.Cmd):
+    """Command class that launches the console"""
 
     prompt = "(hbnt) "
     class_list = ['BaseModel', 'User', 'State', 'City', 'Amenity',
