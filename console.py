@@ -2,7 +2,13 @@
 """ AirBnb Console """
 import cmd
 from models.base_model import BaseModel
-from models import storage
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+import models
 import sys
 
 class HBNBCommand(cmd.Cmd):
@@ -36,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
 
         Usage: show [Class Name] [ID]"""
         args = arg.split()
-        all_ins = storage.all()
+        all_ins = models.storage.all()
         if not len(args):
             print("** class name missing **")
         elif args[0] in self.class_list:
@@ -54,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
         
         Usage: destroy [Class Name] [ID]"""
         args = arg.split()
-        all_ins = storage.all()
+        all_ins = models.storage.all()
         if not len(args):
             print("** class name missing **")
         elif args[0] in self.class_list:
@@ -62,11 +68,60 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
             elif (args[0] + "." + args[1]) in all_ins:
                 del all_ins[(args[0] + "." + args[1])]
-                storage.save()
+                models.storage.save()
             else:
                 print("** no instance found **")
         else:
             print("** class doesn't exist **")
+    
+    def do_all(self, arg):
+        """Prints all string representation of all instances 
+        
+        Usage: all or all [Class Name]"""
+        all_ins = models.storage.all()
+        if arg:
+            if arg in self.class_list:
+                for obj in all_ins.values():
+                    if type(obj).__name__ == arg:
+                        print(obj)
+            else:
+                print("** class doesn't exist **")
+        else:
+            for obj in all_ins.values():
+                print(obj)
+
+    def do_update(self, arg):
+        """Updates an instance based on the class name and id
+        
+        Usage: update <class name> <id> <attribute name> "<attribute value>"""
+        all_ins = models.storage.all()
+        args = arg.split('"')
+        if len(args) > 1:
+            value = args[1]
+        else:
+            value = ""
+        args = args[0].split()
+        if len(args):
+            if args[0] in self.class_list:
+                if len(args) >= 2:
+                    if (args[0] + "." + args[1]) in all_ins:
+                        if len(args) >= 3:
+                            if value:
+                                obj = all_ins[args[0] + "." + args[1]]
+                                setattr(obj, args[2], value)
+                                obj.save()
+                            else:
+                                print("** value missing **")
+                        else:
+                            print("** attribute name missing **")
+                    else:
+                        print("** no instance found **")
+                else:
+                    print("** instance id missing **")
+            else:
+                print("** class doesn't exist **")
+        else:
+            print("** class name missing **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

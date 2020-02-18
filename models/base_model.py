@@ -2,7 +2,7 @@
 """"""
 from datetime import datetime
 from dateutil import parser
-from models import storage
+import models
 import uuid
 
 
@@ -22,7 +22,7 @@ class BaseModel():
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             self.__class__ = __class__.__name__
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """"""
@@ -35,7 +35,7 @@ class BaseModel():
     def save(self):
         """"""
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """"""
@@ -50,8 +50,3 @@ class BaseModel():
     def __class__(self):
         """"""
         return str(__class__.__name__)
-
-
-for k, v in storage._FileStorage__objects.items():
-    json_dict = BaseModel(**v)
-    storage._FileStorage__objects[k] = json_dict.to_dict()
