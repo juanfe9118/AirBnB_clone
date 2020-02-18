@@ -27,6 +27,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         """The program closes because no more input can be read """
+        print()
         return True
 
     def do_create(self, arg):
