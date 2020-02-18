@@ -7,6 +7,7 @@ import uuid
 
 class BaseModel():
     """ BaseModel Class """
+
     def __init__(self, *args, **kwargs):
         """ Initialize objects """
         if kwargs:
