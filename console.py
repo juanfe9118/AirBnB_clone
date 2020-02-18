@@ -11,10 +11,12 @@ from models.review import Review
 import models
 import sys
 
+
 class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnt) "
-    class_list = ['BaseModel', 'User', 'State', 'City', 'Amenity', 'Place', 'Review']
+    class_list = ['BaseModel', 'User', 'State', 'City', 'Amenity',
+                  'Place', 'Review']
 
     def do_quit(self, arg):
         """Exits the program """
@@ -23,10 +25,10 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """The program closes because no more input can be read """
         return True
-    
+
     def do_create(self, arg):
         """Creates a new class instance
-        
+
         Usage: create [Class Name]"""
         if not len(arg):
             print('** class name missing **')
@@ -57,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """Deletes an instance based on class name and id
-        
+
         Usage: destroy [Class Name] [ID]"""
         args = arg.split()
         all_ins = models.storage.all()
@@ -73,10 +75,10 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
         else:
             print("** class doesn't exist **")
-    
+
     def do_all(self, arg):
-        """Prints all string representation of all instances 
-        
+        """Prints all string representation of all instances
+
         Usage: all or all [Class Name]"""
         all_ins = models.storage.all()
         if arg:
@@ -92,8 +94,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id
-        
-        Usage: update <class name> <id> <attribute name> "<attribute value>"""
+
+        Usage: update <class name> <id> <attribute name> '<attribute value>'"""
         all_ins = models.storage.all()
         args = arg.split('"')
         if len(args) > 1:
