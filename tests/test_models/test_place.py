@@ -79,3 +79,10 @@ class Test_Place(unittest.TestCase):
         self.assertEqual(cr, a.created_at)
         self.assertEqual(up, a.updated_at)
         self.assertEqual(a.__class__.__name__, "Place")
+
+    def test_doc(self):
+        self.assertIsNotNone(Place.__doc__)
+        a = Place()
+        self.assertIsNotNone(a.__str__.__doc__)
+        self.assertIsNotNone(a.save.__doc__)
+        self.assertIsNotNone(a.to_dict.__doc__)

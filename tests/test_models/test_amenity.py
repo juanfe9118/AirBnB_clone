@@ -79,3 +79,10 @@ class Test_Amenity(unittest.TestCase):
         self.assertEqual(cr, a.created_at)
         self.assertEqual(up, a.updated_at)
         self.assertEqual(a.__class__.__name__, "Amenity")
+
+    def test_doc(self):
+        self.assertIsNotNone(Amenity.__doc__)
+        a = Amenity()
+        self.assertIsNotNone(a.__str__.__doc__)
+        self.assertIsNotNone(a.save.__doc__)
+        self.assertIsNotNone(a.to_dict.__doc__)
