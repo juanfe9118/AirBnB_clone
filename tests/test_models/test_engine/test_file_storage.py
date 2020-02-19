@@ -39,7 +39,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_type(self):
         """Test type of class"""
-        self.assertIsInstance(self.file_storage, FileStorage)
         self.assertEqual(
             str(type(self.file_storage)),
             "<class 'models.engine.file_storage.FileStorage'>")
+        self.assertIsInstance(self.file_storage, FileStorage)
