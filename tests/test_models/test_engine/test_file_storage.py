@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Test of File Storage """
-from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+import models
 import unittest
 import datetime
 import os
@@ -14,15 +14,6 @@ class Test_File_Storage(unittest.TestCase):
         a = FileStorage()
         self.assertIsInstance(a, FileStorage)
 
-    def test_objects(self):
-        a = FileStorage()
-        self.assertIsInstance(a.all(), dict)
-        b = BaseModel()
-        id = b.id
-        s1 = b.__class__.__name__+"."+b.id
-        s2 = a.all().keys()
-        self.assertIn(s1, s2)
-
     def test_permissions(self):
         """ Test Permissions """
         # Read permissions
@@ -34,3 +25,7 @@ class Test_File_Storage(unittest.TestCase):
         # Execute permissions
         e = os.access('models/engine/file_storage.py', os.X_OK)
         self.assertTrue(r)
+
+    def test_doc(self):
+        self.assertIsNotNone(FileStorage.__doc__)
+        self.assertIsNotNone(models.engine.file_storage.__doc__)
