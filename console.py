@@ -17,7 +17,7 @@ import sys
 class HBNBCommand(cmd.Cmd):
     """Command class that launches the console"""
 
-    prompt = "(hbnt) "
+    prompt = "(hbnb) "
     class_list = ['BaseModel', 'User', 'State', 'City', 'Amenity',
                   'Place', 'Review']
 
@@ -27,12 +27,12 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """"""
-        print()
+        """ EOF """
         return True
 
     def emptyline(self):
-        return False
+        """ Empty Line """
+        pass
 
     def do_create(self, arg):
         """Creates a new class instance
