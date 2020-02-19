@@ -19,8 +19,11 @@ class Test_FileStorage(unittest.TestCase):
 
     def test_doc(self):
         """Test docs for class"""
-        self.assertIsNotNone(FileStorage.__doc__)
-        self.assertIsNotNone(models.engine.file_storage.__doc__)
+        self.assertIsNotNone(
+            models.engine.file_storage.__doc__,
+            "No docstring in the module"
+        )
+        self.assertIsNotNone(FileStorage.__doc__, "No docstring in the class")
 
     def test_permissions(self):
         """ Test Permissions """
