@@ -17,18 +17,18 @@ class FileStorage():
 
     def all(self):
         """ Return all objects """
-        return self.__objects
+        return FileStorage.__objects
 
     def new(self, obj):
         """ Add an object to the dictionary """
-        self.__objects[type(obj).__name__+"."+obj.id] = obj
+        FileStorage.__objects[type(obj).__name__+"."+obj.id] = obj
 
     def save(self):
         """ Serialize objects """
         with open(FileStorage.__file_path, 'w') as f:
             dic = {}
-            for k in self.__objects.keys():
-                dic[k] = self.__objects[k].to_dict()
+            for k in FileStorage.__objects.keys():
+                dic[k] = FileStorage.__objects[k].to_dict()
             json.dump(dic, f)
 
     def reload(self):
@@ -38,11 +38,8 @@ class FileStorage():
                 dic = json.load(f)
                 for k, v in dic.items():
                     cl = k.split(".")[0]
-                    if cl == "BaseModel":
-                        cl += "(**v)"
-                    else:
-                        cl += "(**v)"
+                    cl += '(**{})'.format(dict(v))
                     new_obj = eval(cl)
-                    self.__objects[k] = new_obj
+                    FileStorage.__objects[k] = new_obj
         except:
             pass
