@@ -3,16 +3,25 @@
 from models.engine.file_storage import FileStorage
 import models
 import unittest
-import datetime
 import os
 
 
 class Test_File_Storage(unittest.TestCase):
     """ Test of FIle Storage """
 
+    def setUp(self):
+        """SetUp method"""
+        self.file_storage = FileStorage()
+
+    def TearDown(self):
+        """TearDown method."""
+        del self.file_storage
+
     def test_creation(self):
         a = FileStorage()
         self.assertIsInstance(a, FileStorage)
+        self.assertEqual(
+            str(type(a)), "<class 'models.engine.file_storage.FileStorage'>")
 
     def test_permissions(self):
         """ Test Permissions """
