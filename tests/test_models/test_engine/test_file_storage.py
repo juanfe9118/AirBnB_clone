@@ -37,9 +37,9 @@ class TestFileStorage(unittest.TestCase):
         r = os.access('models/engine/file_storage.py', os.R_OK)
         self.assertTrue(r, "Read permissions")
         w = os.access('models/engine/file_storage.py', os.W_OK)
-        self.assertTrue(r, "Write permissions")
+        self.assertTrue(w, "Write permissions")
         e = os.access('models/engine/file_storage.py', os.X_OK)
-        self.assertTrue(r, "Execute permissions")
+        self.assertTrue(e, "Execute permissions")
 
     def test_type(self):
         """Test type of class"""
