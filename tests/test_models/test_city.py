@@ -63,10 +63,10 @@ class Test_City(unittest.TestCase):
         self.assertTrue(r)
         # Write permissions
         w = os.access('models/city.py', os.W_OK)
-        self.assertTrue(r)
+        self.assertTrue(w)
         # Execute permissions
         e = os.access('models/city.py', os.X_OK)
-        self.assertTrue(r)
+        self.assertTrue(e)
 
     def test_create_kw(self):
         """Test kwargs"""
