@@ -1,24 +1,30 @@
 #!/usr/bin/python3
-""" Test of File Storage """
+
+""" Module to test FileStorage """
+
+
 from models.engine.file_storage import FileStorage
-import models
 import unittest
+import models
 import os
 
 
 class TestFileStorage(unittest.TestCase):
-    """ Test of FIle Storage """
+    """ Test of File Storage """
 
     def setUp(self):
         """SetUp method"""
+
         self.file_storage = FileStorage()
 
     def TearDown(self):
         """TearDown method."""
+
         del self.file_storage
 
     def test_doc(self):
         """Test docs for class"""
+
         self.assertIsNotNone(
             models.engine.file_storage.__doc__,
             "No docstring in the module"
@@ -27,6 +33,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_permissions(self):
         """ Test Permissions """
+
         # Read permissions
         r = os.access('models/engine/file_storage.py', os.R_OK)
         self.assertTrue(r)
@@ -39,6 +46,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_type(self):
         """Test type of class"""
+
         self.assertEqual(
             str(type(self.file_storage)),
             "<class 'models.engine.file_storage.FileStorage'>")
