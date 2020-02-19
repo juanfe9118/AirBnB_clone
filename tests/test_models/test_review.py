@@ -70,6 +70,7 @@ class Test_Review(unittest.TestCase):
         self.assertTrue(r)
 
     def test_create_kw(self):
+        """Test kwargs"""
         dic = {"id": "cec8988f-182e-45ce-934b-1e85aedf55c3",
                "created_at": "2020-02-18T13:34:09.711961",
                "updated_at": "2020-02-18T13:34:09.711965"}
@@ -82,6 +83,7 @@ class Test_Review(unittest.TestCase):
         self.assertEqual(a.__class__.__name__, "Review")
 
     def test_doc(self):
+        """Test docs for class"""
         self.assertIsNotNone(models.review.__doc__)
         self.assertIsNotNone(Review.__doc__)
         a = Review()

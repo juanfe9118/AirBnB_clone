@@ -17,7 +17,8 @@ class Test_File_Storage(unittest.TestCase):
         """TearDown method."""
         del self.file_storage
 
-    def test_creation(self):
+    def test_type(self):
+        """Test type of class"""
         self.assertIsInstance(self.file_storage, FileStorage)
         self.assertEqual(
             str(type(self.file_storage)), "<class 'models.engine.file_storage.FileStorage'>")
@@ -35,5 +36,6 @@ class Test_File_Storage(unittest.TestCase):
         self.assertTrue(r)
 
     def test_doc(self):
+        """Test docs for class"""
         self.assertIsNotNone(FileStorage.__doc__)
         self.assertIsNotNone(models.engine.file_storage.__doc__)
