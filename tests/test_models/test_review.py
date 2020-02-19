@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Test of Review """
 from models.review import Review
+import models
 import unittest
 import datetime
 import os
@@ -81,6 +82,7 @@ class Test_Review(unittest.TestCase):
         self.assertEqual(a.__class__.__name__, "Review")
 
     def test_doc(self):
+        self.assertIsNotNone(models.review.__doc__)
         self.assertIsNotNone(Review.__doc__)
         a = Review()
         self.assertIsNotNone(a.__str__.__doc__)

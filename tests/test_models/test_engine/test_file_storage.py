@@ -18,10 +18,9 @@ class Test_File_Storage(unittest.TestCase):
         del self.file_storage
 
     def test_creation(self):
-        a = FileStorage()
-        self.assertIsInstance(a, FileStorage)
+        self.assertIsInstance(self.file_storage, FileStorage)
         self.assertEqual(
-            str(type(a)), "<class 'models.engine.file_storage.FileStorage'>")
+            str(type(self.file_storage)), "<class 'models.engine.file_storage.FileStorage'>")
 
     def test_permissions(self):
         """ Test Permissions """
