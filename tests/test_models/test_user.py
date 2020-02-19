@@ -79,3 +79,10 @@ class Test_User(unittest.TestCase):
         self.assertEqual(cr, a.created_at)
         self.assertEqual(up, a.updated_at)
         self.assertEqual(a.__class__.__name__, "User")
+
+    def test_doc(self):
+        self.assertIsNotNone(User.__doc__)
+        a = User()
+        self.assertIsNotNone(a.__str__.__doc__)
+        self.assertIsNotNone(a.save.__doc__)
+        self.assertIsNotNone(a.to_dict.__doc__)

@@ -79,3 +79,10 @@ class Test_State(unittest.TestCase):
         self.assertEqual(cr, a.created_at)
         self.assertEqual(up, a.updated_at)
         self.assertEqual(a.__class__.__name__, "State")
+
+    def test_doc(self):
+        self.assertIsNotNone(State.__doc__)
+        a = State()
+        self.assertIsNotNone(a.__str__.__doc__)
+        self.assertIsNotNone(a.save.__doc__)
+        self.assertIsNotNone(a.to_dict.__doc__)
