@@ -25,10 +25,7 @@ class BaseModel():
 
     def __str__(self):
         """ String representation """
-        dic = {}
-        for k, v, in self.__dict__.items():
-            if k != "__class__":
-                dic[k] = v
+        dic = dict(self.__dict__)
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, dic)
 
     def save(self):
@@ -38,10 +35,8 @@ class BaseModel():
 
     def to_dict(self):
         """ Return directory """
-        dic = {}
-        for k, v, in self.__dict__.items():
-            if k == 'created_at' or k == 'updated_at':
-                dic[k] = datetime.isoformat(v)
-            else:
-                dic[k] = v
+        dic = dict(self.__dict__)
+        dic['__class__'] = self.__class__.__name__
+        dic['created_at'] = datetime.isoformat(dic['created_at'])
+        dic['updated_at'] = datetime.isoformat(dic['updated_at'])
         return dic

@@ -33,7 +33,6 @@ class Test_Base(unittest.TestCase):
         a = BaseModel()
         self.assertIsInstance(a.__str__(), str)
         dic = a.__dict__
-        del dic['__class__']
         s1 = a.__str__()
         s2 = '[BaseModel] ({}) {}'.format(a.id, dic)
         self.assertEqual(s1, s2)
@@ -70,14 +69,13 @@ class Test_Base(unittest.TestCase):
         self.assertTrue(r)
 
     def test_create_kw(self):
-        dic = {"id": "cec8988f-182e-45ce-934b-1e85aedf55c3"}
-        dic["created_at"] = "2020-02-18T13:34:09.711961"
-        dic["updated_at"] = "2020-02-18T13:34:09.711965"
-        dic["__class__"] = "BaseModel"
+        dic = {"id": "cec8988f-182e-45ce-934b-1e85aedf55c3",
+               "created_at": "2020-02-18T13:34:09.711961",
+               "updated_at": "2020-02-18T13:34:09.711965"}
         a = BaseModel(**dic)
         cr = datetime.datetime(2020, 2, 18, 13, 34, 9, 711961)
         up = datetime.datetime(2020, 2, 18, 13, 34, 9, 711965)
         self.assertEqual(a.id, "cec8988f-182e-45ce-934b-1e85aedf55c3")
         self.assertEqual(cr, a.created_at)
         self.assertEqual(up, a.updated_at)
-        self.assertEqual(a.__class__, "BaseModel")
+        self.assertEqual(a.__class__.__name__, "BaseModel")
