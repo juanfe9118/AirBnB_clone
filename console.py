@@ -27,10 +27,12 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """The program closes because no more input can be read
-        """
+        """"""
         print()
         return True
+
+    def emptyline(self):
+        return False
 
     def do_create(self, arg):
         """Creates a new class instance
