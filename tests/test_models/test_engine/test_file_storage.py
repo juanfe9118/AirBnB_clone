@@ -6,7 +6,7 @@ import unittest
 import os
 
 
-class Test_File_Storage(unittest.TestCase):
+class Test_FileStorage(unittest.TestCase):
     """ Test of FIle Storage """
 
     def setUp(self):
