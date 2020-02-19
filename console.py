@@ -3,13 +3,13 @@
 AirBnb Console
 """
 import cmd
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
 from models.amenity import Amenity
+from models.base_model import BaseModel
+from models.city import City
 from models.place import Place
 from models.review import Review
+from models.state import State
+from models.user import User
 import models
 import sys
 
@@ -22,11 +22,13 @@ class HBNBCommand(cmd.Cmd):
                   'Place', 'Review']
 
     def do_quit(self, arg):
-        """Exits the program """
+        """Quit command to exit the program
+        """
         return True
 
     def do_EOF(self, arg):
-        """The program closes because no more input can be read """
+        """The program closes because no more input can be read
+        """
         print()
         return True
 
