@@ -32,17 +32,14 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsNotNone(FileStorage.__doc__, "No docstring in the class")
 
     def test_permissions(self):
-        """ Test Permissions """
+        """Test Permissions of file"""
 
-        # Read permissions
         r = os.access('models/engine/file_storage.py', os.R_OK)
-        self.assertTrue(r)
-        # Write permissions
+        self.assertTrue(r, "Read permissions")
         w = os.access('models/engine/file_storage.py', os.W_OK)
-        self.assertTrue(r)
-        # Execute permissions
+        self.assertTrue(r, "Write permissions")
         e = os.access('models/engine/file_storage.py', os.X_OK)
-        self.assertTrue(r)
+        self.assertTrue(r, "Execute permissions")
 
     def test_type(self):
         """Test type of class"""
