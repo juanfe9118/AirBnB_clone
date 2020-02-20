@@ -30,6 +30,7 @@ The purpose of this model is to:
 + Build a powerfull storage system, that will be capable of storing and loading objects to and from a file (**[JSON file](https://www.json.org/)**).
 
 ## How to start using it
+---
 First of all, to use our application you have to clone our repository using the command on your terminal:
 
 `git clone https://github.com/juanfe9118/AirBnB_clone.git`
@@ -54,13 +55,13 @@ Done this, it will show the console of our application, from here, we can intera
 ---
 Now we are going to show some of the application features.
 
-#### help command
+### help command
 This command shows us the help for the most common actions on the console.
 
 On the console type: `help`
 ![help](img/help.png)
 
-#### create
+### create
 Creates an instances of a class, usage: `create <ClassName>` 
 
 ![create](img/create.png)
@@ -68,35 +69,35 @@ Creates an instances of a class, usage: `create <ClassName>`
 It can also be used as follows: `<ClassName>.create`
 
 
-#### all
+### all
 Shows all created instances, usage: `all (OPTIONAL)<ClassName>`
 
 ![all](img/all.png)
 
 It can also be used like this: `<ClassName>.all`
 
-#### show
+### show
 Shows info about a created instance of a class using id as parameter, usage: `show <ClassName> id`
 
 ![show](img/show.png)
 
 It can also be used al follows: `<ClassName>.show("id")` _id must be in parenthesis and quoted_
 
-#### destroy
+### destroy
 Destroys a created instance of a class using id as parameter, usage: `destroy <ClassName> id`
 
 ![destroy](img/destroy.png)
 
 It can also be used as follows: `<ClassName>.destroy("id")` _id must be in parenthesis and quoted_
 
-#### update
+### update
 Updates a created instance of a class using id as parameter as well as the attribute name and the value, usage: `update <ClassName> <attribute name> '<attribute value>'`
 
 ![update](img/update.png)
 
 It can also be used as follows: `<ClassName>.update("id", "attribute name", "attribute value")`
 
-#### count
+### count
 Counts the number of instances of a class: usage: `count <ClassName>`
 
 ![count](img/count.png)
