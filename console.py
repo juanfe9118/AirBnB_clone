@@ -133,8 +133,18 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
 
+    def do_count(self, arg):
+        """Counts all instances of a class"""
+        all_ins = models.storage.all()
+        counter = 0
+        for k in all_ins.keys():
+            c = k.split(".")[0]
+            if c == arg:
+                counter += 1
+        print(counter)
+
     def precmd(self, arg):
-        """ precmd """
+        """Interprets the line before executing"""
         commands = ['show', 'all', 'create', 'update', 'destroy', 'count']
         if len(arg):
             args = arg.split('.')
