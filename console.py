@@ -134,7 +134,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_count(self, arg):
-        """Counts all instances of a class"""
+        """Counts all instances of a class
+
+        Usage: count <class name>"""
         all_ins = models.storage.all()
         counter = 0
         for k in all_ins.keys():
