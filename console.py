@@ -133,6 +133,40 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
 
+    def precmd(self, arg):
+        """ precmd """
+        commands = ['show', 'all', 'create', 'update', 'destroy', 'count']
+        if len(arg):
+            args = arg.split('.')
+            cl = args[0]
+            if cl in self.class_list:
+                c = args[1].split('(')[0]
+                if c in commands:
+                    if c == "all" or c == "create" or c == "count":
+                        return c+" "+cl
+                    else:
+                        try:
+                            args = args[1].split('"')
+                            id = args[1]
+                            if c == "update":
+                                try:
+                                    att = args[3]
+                                    val = '"'+args[5]+'"'
+                                    return c+" "+cl+" "+id+" "+att+" "+val
+                                except:
+                                    return arg
+                            else:
+                                print(c+" "+cl+" "+id)
+                                return c+" "+cl+" "+id
+                        except:
+                            return arg
+                else:
+                    return arg
+            else:
+                return arg
+        else:
+            return arg
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
