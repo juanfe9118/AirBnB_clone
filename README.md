@@ -101,7 +101,6 @@ Counts the number of instances of a class: usage: `count <ClassName>`
 It can also be used like this: `<ClassName>.count`
 
 ## AUTHORS
----
 - [Victor Arteaga](https://twitter.com/Xathovic)
 - [Juan Felipe Buitrago](https://twitter.com/juanfe9118)
 - [Jackson Moreno](https://twitter.com/jaarmore)
