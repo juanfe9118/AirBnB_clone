@@ -49,7 +49,6 @@ Once you're inside of the AirBnB_clone-master folder, you have to execute the co
 Done this, it will show the console of our application, from here, we can interact with the application data.
 
 ## Examples
----
 Now we are going to show some of the application features.
 
 ### help command
