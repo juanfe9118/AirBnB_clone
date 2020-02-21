@@ -18,7 +18,6 @@ This project will be a complete a full web application composed by:
 The firs part of the whole project is: **AirBnB clone - The console**
 
 ## AirBnB clone - The console
----
 ![The console](img/console.png "The Console")
 This is the first part of this project, it represents the data model.
 
