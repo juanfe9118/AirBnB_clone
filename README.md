@@ -28,7 +28,6 @@ The purpose of this model is to:
 + Build a powerfull storage system, that will be capable of storing and loading objects to and from a file (**[JSON file](https://www.json.org/)**).
 
 ## How to start using it
----
 First of all, to use our application you have to clone our repository using the command on your terminal:
 
 `git clone https://github.com/juanfe9118/AirBnB_clone.git`
