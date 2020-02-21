@@ -6,7 +6,6 @@ The goal of the project is to deploy on our own server a simple copy of the [**A
 
 
 ## Description of the project
----
 We don’t implement all the features, only some of them to cover all fundamental concepts of the higher level programming track at [**Holberton**](https://www.holbertonschool.com/).
 
 This project will be a complete a full web application composed by:
